@@ -32,8 +32,11 @@ selection from a string to an integer and the toupper() function to convert the 
 5. character counter ------???maaaaaathhh??-----
 */
 
+//int enterkey = getchar();
+
 int main(int argc, char *argv[]) {
         int userInput[1];
+        int enterkey = getchar();
 
         //0. starting prompt---------?????Add more instruction????---------
         printf("String Processing Tool\n1. Count characters\n2. Reverse string\n3. Convert to uppercase\n4. Check palindrome\n5. Count occurrences of a character\n6. Exit\n");
@@ -43,25 +46,32 @@ int main(int argc, char *argv[]) {
 
         switch (userInput[0])
         {
-        case '1':
-            
-            printf("Number of characters: %d", );
+        case '1': {
+            char string[] = &argv;
+            int length = strlen(string);
+            printf("Number of characters: %d", length);
             printf("Press Enter to continue...");
-
-            break;
+            if (enterkey == '\n') {
+                continue;
+            }
+           } break;
         
         case '2':
 
             printf("Reversed string is: %s", );//--------check test output----------not in blackboard sample output--------
             printf("Press Enter to continue...");
-
+            if (enterkey == '\n') {
+                continue;
+            }
             break;
 
         case '3':
             
             printf("Uppercase string: %s", );
             printf("Press Enter to continue...");
-
+            if (enterkey == '\n') {
+                continue;
+            }
             break;
 
         case '4':
@@ -72,7 +82,9 @@ int main(int argc, char *argv[]) {
             //else
             printf("%s is a palindrome", );
             printf("Press Enter to continue...");
-
+            if (enterkey == '\n') {
+                continue;
+            }
             break;
 
         case '5':
@@ -82,7 +94,9 @@ int main(int argc, char *argv[]) {
             printf("Occurrences of '%s': %d", , );
 
             printf("Press Enter to continue...");
-
+            if (enterkey == '\n') {
+                continue;
+            }
             break;
 
         case '6':
