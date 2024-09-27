@@ -25,9 +25,18 @@ selection from a string to an integer and the toupper() function to convert the 
 #define PALINDROME_NOT_FOUND 0 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--------
 
 /*
-1. strlen function
+1. XXXXXXXstrlen functionXXXXXXno function needed?
 2. string reverse function ??--math--??
-3. toupper function
+3. toupper function*/
+void uppercaseit(char *str) {
+    while (*str != '0') {
+        if ((*str >= 'a') && (*str <= 'z')) {
+            *str -= 32;
+        }
+        str++;
+    }
+}
+/*
 4. palindrome function ??--more math--???
 5. character counter ------???maaaaaathhh??-----
 */
@@ -38,11 +47,16 @@ int main(int argc, char *argv[]) {
         int userInput[1];
         int enterkey = getchar();
 
+        if (argc < 2) {
+            printf("Original string: %s <string>\n", argv[0]);
+            return 1;
+        }
+
         //0. starting prompt---------?????Add more instruction????---------
         printf("String Processing Tool\n1. Count characters\n2. Reverse string\n3. Convert to uppercase\n4. Check palindrome\n5. Count occurrences of a character\n6. Exit\n");
     do {
         printf("Enter your input_selection:");
-        scanf("%d", userInput); //fgets this-------------------- 
+        scanf("%d", userInput); //fgets this?-------------------- 
 
         switch (userInput[0])
         {
