@@ -24,18 +24,20 @@ selection from a string to an integer and the toupper() function to convert the 
 #define PALINDROME_FOUND 1 //implement 1 and 0 into palindrome function--------
 #define PALINDROME_NOT_FOUND 0 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^--------
 
-/*
-1. XXXXXXXstrlen functionXXXXXXno function needed?
-2. string reverse function ??--math--??
-3. toupper(ooooopps) function*//*------????done???---------
-void uppercaseit(char *str) {
-    while (*str != '\0') {
-        if ((*str >= 'a') && (*str <= 'z')) {
-            *str -= 32;
-        }
-        str++;
+
+//1. strlen function - no function needed?
+//2. string reverse function ??--math--??
+void reverse(char *str) {
+    int length = strlen(str);
+    int middle = length / 2;
+    char temp; 
+    for (int i = 0; i < middle; i++){
+        temp = str[i];
+        str[i] = str[length - i - 1];
+        str[length - i - 1] = temp;
     }
-}*///using toupper()
+    }
+//3. toupper funtion
 void uppercaseit(char *str) {
     while (*str != '\0') {
         *str = toupper((unsigned char)*str);
@@ -78,10 +80,9 @@ int main(int argc, char *argv[]) {
         printf("Enter your input_selection:");
         scanf("%d", userInput); //fgets this?-------------------- 
 
-        switch (userInput[0])
-        {
+        switch (userInput[0]) {
         case '1': {
-            char string[] = &argv;//change to argv[1]?
+            char str = argv[1];
             int length = strlen(str);
             printf("Number of characters: %d", length);
             printf("Press Enter to continue...");
@@ -90,25 +91,28 @@ int main(int argc, char *argv[]) {
             }
            } break;
         
-        case '2':
-
-            printf("Reversed string is: %s", );//--------check test output----------not in blackboard sample output--------
+        case '2': {
+            char str[] = *argv[1];
+            reverse(str);
+            printf("Reversed string is: %s\n", str);
             printf("Press Enter to continue...\n");
             if (enterkey == '\n') {
                 continue;
             }
+        }
             break;
 
-        case '3':
-            uppercaseit(argv[1]); // use the string from the terminal
-            printf("Uppercase string: %s\n", argv[1]);
+        case '3': {
+            uppercaseit(argv[1]);
+            printf("Uppercase string: %s\n", str);
             printf("Press Enter to continue...");
             if (enterkey == '\n') {
                 continue;
             }
+        }
             break;
 
-        case '4':
+        case '4': {
             if (isPalindrome(argv[1]) == PALINDROME_FOUND) {
             printf("%s is a palindrome\n", str);
             }            
@@ -119,9 +123,10 @@ int main(int argc, char *argv[]) {
             if (enterkey == '\n') {
                 continue;
             }
+        }
             break;
 
-        case '5':
+        case '5': {
 
             printf("Enter a character to count: \n", );
 
@@ -131,19 +136,22 @@ int main(int argc, char *argv[]) {
             if (enterkey == '\n') {
                 continue;
             }
+        }
             break;
 
-        case '6':
+        case '6': {
             printf("Exiting the program.\n");
+        }
             break;
 
-        default:
-            printf("invalid input\n");//-----------?????????????-----------
+        default: {
+            printf("invalid input\n");
+        }
             break;
         }
 
     }
     while (strcmp(userInput, "6") != 0);
 
-    return 0;
+return 0;
 }
