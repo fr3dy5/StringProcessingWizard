@@ -81,8 +81,8 @@ int main(int argc, char *argv[]) {
         switch (userInput[0])
         {
         case '1': {
-            char string[] = &argv;
-            int length = strlen(string);
+            char string[] = &argv;//change to argv[1]?
+            int length = strlen(str);
             printf("Number of characters: %d", length);
             printf("Press Enter to continue...");
             if (enterkey == '\n') {
@@ -93,7 +93,7 @@ int main(int argc, char *argv[]) {
         case '2':
 
             printf("Reversed string is: %s", );//--------check test output----------not in blackboard sample output--------
-            printf("Press Enter to continue...");
+            printf("Press Enter to continue...\n");
             if (enterkey == '\n') {
                 continue;
             }
@@ -109,13 +109,13 @@ int main(int argc, char *argv[]) {
             break;
 
         case '4':
-
-            printf("%s is a palindrome", *argv);
-            
+            if (isPalindrome(argv[1]) == PALINDROME_FOUND) {
+            printf("%s is a palindrome\n", str);
+            }            
             else {
-            printf("%s is not a palindrome", *argv);
+            printf("%s is not a palindrome\n", str);
             }
-            printf("Press Enter to continue...");
+            printf("Press Enter to continue...\n");
             if (enterkey == '\n') {
                 continue;
             }
@@ -123,22 +123,22 @@ int main(int argc, char *argv[]) {
 
         case '5':
 
-            printf("Enter a character to count: ", );
+            printf("Enter a character to count: \n", );
 
             printf("Occurrences of '%s': %d", , );
 
-            printf("Press Enter to continue...");
+            printf("Press Enter to continue...\n");
             if (enterkey == '\n') {
                 continue;
             }
             break;
 
         case '6':
-            printf("Exiting the program.");
+            printf("Exiting the program.\n");
             break;
 
         default:
-            printf("invalid input");//-----------?????????????-----------
+            printf("invalid input\n");//-----------?????????????-----------
             break;
         }
 
