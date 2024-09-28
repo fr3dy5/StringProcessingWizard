@@ -27,28 +27,48 @@ selection from a string to an integer and the toupper() function to convert the 
 /*
 1. XXXXXXXstrlen functionXXXXXXno function needed?
 2. string reverse function ??--math--??
-3. toupper function*/
+3. toupper(ooooopps) function*//*------????done???---------
 void uppercaseit(char *str) {
-    while (*str != '0') {
+    while (*str != '\0') {
         if ((*str >= 'a') && (*str <= 'z')) {
             *str -= 32;
         }
         str++;
     }
+}*///using toupper()
+void uppercaseit(char *str) {
+    while (*str != '\0') {
+        *str = toupper((unsigned char)*str);
+        str++;
+    }
 }
-/*
-4. palindrome function ??--more math--???
-5. character counter ------???maaaaaathhh??-----
-*/
+
+//4. palindrome function ??--more math--???
+int isPalindrome(const char *str) {
+    int left = 0;
+    int right = strlen(str) - 1;
+    
+    while (left < right) {
+        if (str[left] != str[right]) {
+            return PALINDROME_NOT_FOUND;
+        }
+        left++;
+        right--;
+    }
+    return PALINDROME_FOUND;
+}
+//5. character counter ------???maaaaaathhh??-----
+
 
 //int enterkey = getchar();
 
 int main(int argc, char *argv[]) {
         int userInput[1];
         int enterkey = getchar();
-
+        char str[MAX_INPUT_STRING_SIZE];
+        // add max character constant into this if statement??
         if (argc < 2) {
-            printf("Original string: %s <string>\n", argv[0]);
+            printf("Original string: %s\n", argv[0]);
             return 1;
         }
 
@@ -80,8 +100,8 @@ int main(int argc, char *argv[]) {
             break;
 
         case '3':
-            
-            printf("Uppercase string: %s", );
+            uppercaseit(argv[1]); // use the string from the terminal
+            printf("Uppercase string: %s\n", argv[1]);
             printf("Press Enter to continue...");
             if (enterkey == '\n') {
                 continue;
@@ -90,11 +110,11 @@ int main(int argc, char *argv[]) {
 
         case '4':
 
-            //if
-            printf("%s is not a palindrome", );
+            printf("%s is a palindrome", *argv);
             
-            //else
-            printf("%s is a palindrome", );
+            else {
+            printf("%s is not a palindrome", *argv);
+            }
             printf("Press Enter to continue...");
             if (enterkey == '\n') {
                 continue;
