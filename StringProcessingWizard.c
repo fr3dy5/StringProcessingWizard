@@ -59,8 +59,17 @@ int isPalindrome(const char *str) {
     }
     return PALINDROME_FOUND;
 }
-//5. character counter ------???maaaaaathhh??-----
-
+//5. character counter ------???maaaaaathhh??-----use getf here???
+int charcount(const char *str, char target) {
+    int count = 0;
+    while (*str) {
+        if (*str == target) {
+            count++;
+        }
+        str++;
+    }
+    return count;
+}
 
 //int enterkey = getchar();
 
@@ -130,7 +139,7 @@ int main(int argc, char *argv[]) {
 
             printf("Enter a character to count: \n", );
 
-            printf("Occurrences of '%s': %d", , );
+            printf("Occurrences of '%c': %d", target, result);
 
             printf("Press Enter to continue...\n");
             if (enterkey == '\n') {
